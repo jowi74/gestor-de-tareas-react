@@ -1,7 +1,7 @@
 import useForm from "../hooks/useForm";
 import { useTasks } from "../context/TaskContext";
 
-function TaskForm() {
+function TaskForm({ author }) {
   const { addTask } = useTasks();
 
   const { values, handleChange, resetForm } = useForm({
@@ -18,7 +18,8 @@ function TaskForm() {
       title: values.title,
       description: values.description,
       priority: values.priority,
-      status: "todo"
+      status: "todo",
+      author: author
     });
 
     resetForm();
